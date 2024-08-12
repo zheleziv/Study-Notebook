@@ -3,14 +3,12 @@
 
 // Your new function as given to you by me, your boss.
 int cut_log(const std::vector<int>& price, int n){
-    int maxSum = 0;
+    int maxSum = price[n];
     int curSum = 0;
     // Some array to store calculated values
     for (int j = 1; j <= n; j++) {
         for (int i = 1; i <= j; i++) { // Two nested loops = Θ(n^2)
             curSum = price[n - j] + ((j) / i) * price[i] +  price[((j) % i)];
-            if(curSum >= 579)
-            std::cout << "j- "<< j << " " << "i- "<< i << "| 1- "<< (n - j) / i << ", 2- " <<   ((n - j) % i) << " " << curSum <<  std::endl;
             if(curSum > maxSum)
                 maxSum = curSum;
         }
